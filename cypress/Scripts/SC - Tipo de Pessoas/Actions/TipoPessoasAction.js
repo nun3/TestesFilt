@@ -30,8 +30,10 @@ export class TipoPessoaAction {
   ValidaGrid() {
     cy.get(SelectorObj.BtnFiltrar).click({force : true});
     cy.wait(1500);
+    
+    // Preenche o input com o valor da propriedade estática CONTEXTO_ID da classe ValidadorDeId
+    cy.get('input[name="filtro-id"]').type(ValidadorDeId.CONTEXTO_ID);
 
-    cy.get('input[name="filtro-id"]').type(ValidadorDeId.CONTEXTO_ID);// Acessa o valor de CONTEXTO_ID utilizando o alias
 
     cy.get('button[type="submit"][form="formFiltro"]').click()
   }
