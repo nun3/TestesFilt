@@ -1,0 +1,6 @@
+{
+    "LoginPageLocators": {
+        "LoginForm":".login-form",
+        "PageAct" : "#main"
+    }
+}

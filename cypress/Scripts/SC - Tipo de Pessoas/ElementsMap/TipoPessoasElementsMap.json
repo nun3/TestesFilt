@@ -1,0 +1,9 @@
+{
+    "TipoPessoaLocators": {
+        "BtnObj":"button",
+        "Descricaofield":"#descricao",
+        "IdPessoa":".codigo-format",
+        "status":".p-toast-message-content"
+        
+    }
+}
