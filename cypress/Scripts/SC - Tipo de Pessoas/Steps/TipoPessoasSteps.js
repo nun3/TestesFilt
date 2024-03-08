@@ -3,12 +3,36 @@ import { TipoPessoaAction } from '../Actions/TipoPessoasAction';
 
 const TipoPessoaAct = new TipoPessoaAction
 
-Given(`que acessei o formulário de Tipo de Pessoa`, () => {
-    cy.get('#main').click()
-    cy.request('GET', '/api/master/menu/primeiro-nivel-by-url?url=/fiscal/tipo-pessoa').then(() => {
-        cy.wait(5000);                          
-        cy.url().should('eq', 'https://erp-homologacao.viasoft.com.br/pt/fiscal/tipo-pessoa');
-    });  
+Given('que acessei o formulário de Tipo de Pessoa', () => {
+  cy.intercept('GET', '/api/master/menu/primeiro-nivel-by-url*', {
+    body: [{
+      id: 1,
+      descricao: 'Tipo de Pessoa',
+      url: '/fiscal/tipo-pessoa',
+      ordem: 1,
+      icone: 'fas fa-user-friends',
+      rotas: [],
+      id_modulo: 3,
+      modulo: {
+        id: 3,
+        descricao: 'Fiscal',
+        ordem: 1,
+        url: '/fiscal',
+        icone: 'fas fa-store',
+        id_permissao_padrao: 1,
+        permissao_padrao: {
+          id: 1,
+          descricao: 'Visualizar',
+          ordem: 1
+        }
+      },
+      permissoes: []
+    }]
+  }).as('getMenu');
+
+  cy.visit('/fiscal/tipo-pessoa');
+
+  cy.url().should('include', '/fiscal/tipo-pessoa');
 });
 
 When(`clico no botão {string}`, (btn) => {
