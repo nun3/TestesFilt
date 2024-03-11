@@ -59,6 +59,22 @@ Then(`o Cadastro de Tipo de Pessoa Simples deve ser salva com os seguintes dados
     TipoPessoaAct.ValidaCadastroAtualizado(table)
 });
 
+When(`clico na opção » remover « Cadastro na Tela de Tipo Pessoa`, () => {
+    TipoPessoaAct.BtnRemove()
+});
+When(`aguardo a tela de confirmação de exclusão`, () => {
+    TipoPessoaAct.waiForConfirmation()
+});
+When(`clico no botão Sim na tela de Tipo de Pessoa`, () => {
+    TipoPessoaAct.SimInDelete()
+});
+
+// Then(`o Cadastro de Tipo de Pessoa Simples deve ser removido da coluna {string}`, (string) => {
+//     // [Then] Describes the expected outcome or result of the scenario.
+// });
+
+
 // Then(`eu filtro o id  do registro gerado e vejo as informações da linha na grid`, () => {
 //     TipoPessoaAct.ValidaGrid()
 // });
+

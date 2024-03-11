@@ -29,16 +29,14 @@ Cenário: Edição de Tipo de Pessoa Simples
     | Id        | Descricao                |
     | Generator | Tipo Pessoa teste Edição |
 
-# Cenário: Exclusão de Tipo de Pessoa Simples
-#     Dado que acessei o formulário de Tipo de Pessoa
-#     Quando filtro pelo ultimo id do registro gerado
-#     E seleciono  a linha correspondente na grid
-#     E preencho o campo Descrição com o valor 'Tipo Pessoa teste Edição'
-#     E clico no botão 'Salvar'
-#     E aguardo o status 'Salvo com sucesso'
-#     Então o Cadastro de Tipo de Pessoa Simples deve ser salva com os seguintes dados:
-#     | Id        | Descricao                |
-#     | Generator | Tipo Pessoa teste Edição |
+Cenário: Exclusão de Tipo de Pessoa Simples
+    Dado que acessei o formulário de Tipo de Pessoa
+    Quando filtro pelo ultimo id do registro gerado
+    E clico na opção » remover « Cadastro na Tela de Tipo Pessoa
+    E aguardo a tela de confirmação de exclusão
+    E clico no botão Sim na tela de Tipo de Pessoa
+    E aguardo o status 'Registro removido com sucesso'
+    # Então o Cadastro de Tipo de Pessoa Simples deve ser removido da coluna 'Id'
   
 
   
