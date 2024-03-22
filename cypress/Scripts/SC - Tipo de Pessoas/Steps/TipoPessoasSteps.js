@@ -39,6 +39,13 @@ When(`clico no botão {string}`, (btn) => {
     TipoPessoaAct.ClickBtn(btn)
 });
 
+When(`clico no botão 2 {string}`, (btn) => {
+  cy.get('button').contains(btn).then((teste) => {
+    const btn = teste[0].innerText;
+
+  })
+});
+
 When(`filtro pelo ultimo id do registro gerado`, () => {
     TipoPessoaAct.ValidaGrid()
 });
