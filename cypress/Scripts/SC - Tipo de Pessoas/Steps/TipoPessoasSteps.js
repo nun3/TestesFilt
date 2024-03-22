@@ -39,13 +39,6 @@ When(`clico no botão {string}`, (btn) => {
     TipoPessoaAct.ClickBtn(btn)
 });
 
-When(`clico no botão 2 {string}`, (btn) => {
-  cy.get('button').contains(btn).then((teste) => {
-    const btn = teste[0].innerText;
-
-  })
-});
-
 When(`filtro pelo ultimo id do registro gerado`, () => {
     TipoPessoaAct.ValidaGrid()
 });
@@ -62,6 +55,11 @@ When(`aguardo o status {string}`, (status) => {
     TipoPessoaAct.ValidaStatus(status)
 });
 
+Then(`o Cadastro de Tipo de Pessoa Simples deverá ser excluido, seguido do status {string}`, (status) => {
+  TipoPessoaAct.ValidaStatus(status)
+  cy.visit('/')
+});
+
 Then(`o Cadastro de Tipo de Pessoa Simples deve ser salva com os seguintes dados:`, (table) => {
     TipoPessoaAct.ValidaCadastroAtualizado(table)
 });
@@ -75,13 +73,3 @@ When(`aguardo a tela de confirmação de exclusão`, () => {
 When(`clico no botão Sim na tela de Tipo de Pessoa`, () => {
     TipoPessoaAct.SimInDelete()
 });
-
-// Then(`o Cadastro de Tipo de Pessoa Simples deve ser removido da coluna {string}`, (string) => {
-//     // [Then] Describes the expected outcome or result of the scenario.
-// });
-
-
-// Then(`eu filtro o id  do registro gerado e vejo as informações da linha na grid`, () => {
-//     TipoPessoaAct.ValidaGrid()
-// });
-

@@ -35,8 +35,7 @@ Cenário: Exclusão de Tipo de Pessoa Simples
     E clico na opção » remover « Cadastro na Tela de Tipo Pessoa
     E aguardo a tela de confirmação de exclusão
     E clico no botão Sim na tela de Tipo de Pessoa
-    E aguardo o status 'Registro removido com sucesso'
-    # Então o Cadastro de Tipo de Pessoa Simples deve ser removido da coluna 'Id'
+    Então o Cadastro de Tipo de Pessoa Simples deverá ser excluido, seguido do status 'Registro removido com sucesso'
   
 
   

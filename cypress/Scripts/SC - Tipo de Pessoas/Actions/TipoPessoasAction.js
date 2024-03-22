@@ -6,24 +6,19 @@ import SelectorObj from '../../Commons/CommonsObj';
 export class TipoPessoaAction {
   
   ClickBtn(btncontext){
-    cy.get(TipoPessoaElement.TipoPessoaLocators.BtnObj)
-    .contains(btncontext)
-    .click();
+    cy.get(TipoPessoaElement.TipoPessoaLocators.BtnObj).contains(btncontext).click();
   }
 
   InputText(txtcontext){
-    cy.get(TipoPessoaElement.TipoPessoaLocators.Descricaofield)
-    .type(txtcontext);
+    cy.get(TipoPessoaElement.TipoPessoaLocators.Descricaofield).type(txtcontext);
   }
 
   ValidaStatus(status){
-    cy.get(TipoPessoaElement.TipoPessoaLocators.status)
-    .contains(status,{timeout:3000})
+    cy.get(TipoPessoaElement.TipoPessoaLocators.status).contains(status,{timeout:3000})
   }
  
   ValidaCadastroAtualizado(table) {
     let Id = 'Id', Descricao = 'Descricao';
-    //cy.ValidaId(table,TipoPessoaElement.TipoPessoaLocators.IdPessoa,Id)
     ValidadorDeId.validaId(table, TipoPessoaElement.TipoPessoaLocators.IdPessoa,Id);
     cy.ValidaFields(table,TipoPessoaElement.TipoPessoaLocators.Descricaofield,Descricao)
   }
@@ -59,9 +54,7 @@ export class TipoPessoaAction {
     cy.contains('.p-confirm-dialog-message', 'Tem certeza que deseja excluir?', {timeout:3000})
   }
   SimInDelete(){
-    cy.get('button.p-button').contains('span', 'Sim')
-    .invoke('prop', 'textContent').should('equal', 'Sim')
+    cy.get('button.p-button').contains('span', 'Sim').invoke('prop', 'textContent').should('equal', 'Sim')
     cy.get('button.p-confirm-dialog-accept').click();
-
   }
 }
