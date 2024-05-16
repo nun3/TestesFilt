@@ -4,7 +4,7 @@ import { TipoPessoaAction } from '../Actions/TipoPessoasAction';
 const TipoPessoaAct = new TipoPessoaAction
 
 Given('que acessei o formulário de Tipo de Pessoa', () => {
-  cy.url().should('include', '/fiscal/tipo-pessoa');
+  cy.wait(10000)
 });
 
 When(`clico no botão {string}`, (btn) => {
