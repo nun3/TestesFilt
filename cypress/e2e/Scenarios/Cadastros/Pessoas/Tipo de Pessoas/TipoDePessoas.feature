@@ -38,6 +38,4 @@ Cenário: Exclusão de Tipo de Pessoa Simples
     Então o Cadastro de Tipo de Pessoa Simples deverá ser excluido, seguido do status 'Registro removido com sucesso'
   
 
-  
-
 
