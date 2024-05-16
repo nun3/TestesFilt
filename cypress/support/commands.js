@@ -26,17 +26,43 @@
 import '@testing-library/cypress/add-commands'
 const VariavelTemp = require('../Scripts/Commons/ValidaID')
 
-Cypress.Commands.add('clickMenu', (menu) => {
-    cy.get('.itens-menu-principal').contains(menu).trigger('mouseover');
-    cy.wait(500); 
-    cy.get('.background-sidenav > .menus-sidenav > ul').contains(menu).trigger('mouseover').click();
-    cy.wait(1000);   
-  });
+Cypress.Commands.add('SetMenuPrincipal', (menuPrincipal) => {
+  // Aguardar 3 segundos para garantir que o menu esteja carregado
+  cy.wait(3000);
   
-  Cypress.Commands.add('clickSubMenu', (submenu) => {
-    cy.get('li').contains(submenu).click();
-    cy.wait(500); 
-  });
+  // Localizar e clicar no item do menu principal especificado
+  cy.contains('.menus-sidenav a', menuPrincipal)
+      .should('exist') // Verificar se o item do menu existe
+      .click(); // Clicar no item do menu
+});
+
+// Comando personalizado para selecionar um item no menu
+Cypress.Commands.add('SetMenu', (menu) => {
+  // Aguardar 3 segundos para garantir que o menu esteja carregado
+  cy.wait(3000);
+  
+  // Localizar e clicar no item de menu especificado
+  cy.contains('.item', menu)
+      .should('exist') // Verificar se o item do menu existe
+      .click(); // Clicar no item do menu
+});
+
+// Comando personalizado para selecionar um sub-menu
+Cypress.Commands.add('SetSubMenu', (subMenu) => {
+  // Localizar e clicar no sub-menu especificado
+  cy.contains('.ng-star-inserted a', subMenu)
+      .should('exist') // Verificar se o sub-menu existe
+      .click(); // Clicar no sub-menu
+  
+  // Aguardar 5 segundos para a página carregar
+  cy.wait(7000);
+  
+  // Verificar se a URL mudou, indicando que a página foi carregada
+  cy.url().should('not.eq', Cypress.config().baseUrl);
+});
+
+
+
   
   Cypress.Commands.add('ValidaId', (table, MapId, ColunaId) => {
     table.hashes().forEach(row => {

@@ -10,6 +10,6 @@ module.exports = defineConfig({
       on('file:preprocessor', cucumber())
     },
     specPattern: "cypress/e2e/**/*.feature",
-    baseUrl: "https://erp-homologacao.viasoft.com.br/pt/",
+    baseUrl: "https://app.filterp.com.br/",
   },
 });
