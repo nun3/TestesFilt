@@ -7,7 +7,7 @@
 
 Este projeto utiliza Cypress para testes end-to-end integrados com Cucumber para BDD (Behavior Driven Development). 
 
-## Site de Teste
+## Site de Teste (FILT)
 Utilizamos [este site de teste](https://app.filterp.com.br/) para nossos exemplos práticos.
 
 ## Vídeo de Referência
