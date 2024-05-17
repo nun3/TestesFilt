@@ -13,21 +13,33 @@ Utilizamos [este site de teste](https://app.filterp.com.br/) para nossos exemplo
 ## Vídeo de Referência
 Confira o vídeo de referência para configuração detalhada [aqui](https://www.youtube.com/watch?v=Dc0zyn2n6RQ).
 
-## Configuração Inicial
-A configuração padrão de URL está definida em `cypress.config.js`:
+## Requisitos
+- Node.js
+- npm ou yarn
+- Cypress
+- Cucumber
 
-```javascript
-const cucumber = require('cypress-cucumber-preprocessor').default;
-const { defineConfig } = require("cypress");
+## Instalação
+1. Clone o repositório:
+    ```bash
+    git clone https://github.com/seu-usuario/seu-repositorio.git
+    ```
+2. Navegue até o diretório do projeto:
+    ```bash
+    cd seu-repositorio
+    ```
+3. Instale as dependências:
+    ```bash
+    npm install
+    ```
+    ou
+    ```bash
+    yarn install
+    ```
 
-module.exports = defineConfig({
-  projectId: 'uqjmju',
-  e2e: {
-    setupNodeEvents(on, config) {
-      on('file:preprocessor', cucumber());
-    },
-    specPattern: "cypress/e2e/**/*.feature",
-    baseUrl: "https://app.filterp.com.br/" // Configurar URL base aqui
-  },
-});
+## Executando os Testes
+Para executar os testes, utilize o seguinte comando:
+```bash
+npx cypress open
+
 
