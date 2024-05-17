@@ -22,7 +22,7 @@ Confira o vídeo de referência para configuração detalhada [aqui](https://www
 ## Instalação
 1. Clone o repositório:
     ```bash
-    git clone https://github.com/seu-usuario/seu-repositorio.git
+    git clone https://github.com/nun3/TestesFilt.git
     ```
 2. Navegue até o diretório do projeto:
     ```bash
@@ -37,9 +37,35 @@ Confira o vídeo de referência para configuração detalhada [aqui](https://www
     yarn install
     ```
 
+## Configuração Inicial
+A configuração padrão de URL está definida em `cypress.config.js`:
+
+```javascript
+const cucumber = require('cypress-cucumber-preprocessor').default;
+const { defineConfig } = require("cypress");
+
+module.exports = defineConfig({
+  projectId: 'uqjmju',
+  e2e: {
+    setupNodeEvents(on, config) {
+      on('file:preprocessor', cucumber());
+    },
+    specPattern: "cypress/e2e/**/*.feature",
+    baseUrl: "https://app.filterp.com.br/" // Configurar URL base aqui
+  },
+});
+```
 ## Executando os Testes
 Para executar os testes, utilize o seguinte comando:
 ```bash
 npx cypress open
+```
+ou
+
+```bash
+npx cypress run
+```
+
+
 
 
